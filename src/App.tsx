@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import PokeInfo from "./Components/PokemonInfo";
-import SearchPokemon from "./Components/SearchPokemon";
+import SearchPokemon from "./Components/SearchPokemonIndex";
 
 const App = () => {
   const router = createBrowserRouter([
