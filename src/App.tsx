@@ -1,7 +1,6 @@
 // Main.tsx
 import React, { useState, useEffect } from "react";
 import Card from "./Components/Card";
-import Pokeinfo from "./Components/Pokeinfo";
 import axios from "axios";
 
 interface Pokemon {
@@ -53,7 +52,7 @@ const App = () => {
 
   return (
     <>
-      <div className="grid">
+      <div>
         <div className="grid grid-cols-4 gap-4 justify-items-center">
           <Card
             pokemon={pokeData}
