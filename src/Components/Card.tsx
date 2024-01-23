@@ -12,10 +12,9 @@ interface Pokemon {
 interface CardProps {
   pokemon: Pokemon[];
   loading: boolean;
-  infoPokemon: any;
 }
 
-const Card: FC<CardProps> = ({ pokemon, loading, infoPokemon }) => {
+const Card: FC<CardProps> = ({ pokemon, loading }) => {
   return (
     <>
       {loading ? (

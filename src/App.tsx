@@ -54,11 +54,7 @@ const App = () => {
     <>
       <div>
         <div className="grid grid-cols-4 gap-4 justify-items-center">
-          <Card
-            pokemon={pokeData}
-            loading={loading}
-            infoPokemon={(poke: any) => setPokeDex(poke)}
-          />
+          <Card pokemon={pokeData} loading={loading} />
 
           <div className="bg-blue-200 rounded-md mx-4">
             {prevUrl && (
