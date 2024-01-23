@@ -1,8 +1,7 @@
-import "./App.css";
 import { default as Axios } from "axios";
 import { useState } from "react";
 
-function searchPokemon() {
+function SearchPokemon() {
   const [pokemonName, setPokemonName] = useState<string>("");
   const [pokemonChosen, setPokemonChosen] = useState<boolean>(false);
   const [pokemon, setPokemon] = useState<{
@@ -46,7 +45,6 @@ function searchPokemon() {
   return (
     <div className="App">
       <div className="flex flex-col bg-yellow-400 p-8 text-8xl font-bold text-stone-50 ">
-        <h1> Pokemon Dex React! </h1>
         <input
           type="text"
           className="self-center my-2 mt-8 w-1/4 rounded-md border-0 p-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-center focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center"
@@ -64,7 +62,7 @@ function searchPokemon() {
       </div>
       <div className="flex flex-col items-center">
         {!pokemonChosen ? (
-          <h1> Please Choose a Pokemon! </h1>
+          <h1 className="text-4xl font-bold"> Search a Pokemon! </h1>
         ) : (
           <>
             <h1 className="text-4xl font-bold text-stone-800 py-4 capitalize m-4 bg-blue-200 w-1/4 rounded-md shadow-lg">
@@ -97,4 +95,4 @@ function searchPokemon() {
   );
 }
 
-export default searchPokemon;
+export default SearchPokemon;
