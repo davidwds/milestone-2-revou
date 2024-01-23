@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import Pokeinfo from "./Pokeinfo";
 
 interface Pokemon {
   types: any;
