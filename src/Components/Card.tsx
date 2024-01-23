@@ -32,6 +32,7 @@ const Card: FC<CardProps> = ({ pokemon, loading }) => {
                 </div>
                 <div>
                   <h3>Stat</h3>
+
                   <h2>{item.types[0].type.name}</h2>
                 </div>
               </div>
