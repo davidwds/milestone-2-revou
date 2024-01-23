@@ -1,8 +1,7 @@
-// Main.tsx
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Card from "./Components/Card";
 import axios from "axios";
+import Navbar from "./Components/Navbar";
 
 interface Pokemon {
   types: any;
@@ -43,7 +42,7 @@ const App = () => {
     getPokemon(res.data.results);
     setLoading(false);
   };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   useEffect(() => {
     pokeFun();
   }, [url]);
@@ -51,13 +50,14 @@ const App = () => {
   return (
     <>
       <div>
+        <Navbar />
         <div className="grid grid-cols-4 gap-4 justify-items-center">
           <Card pokemon={pokeData} loading={loading} />
 
-          <div className="text-2xl bg-blue-200 rounded-md mx-4 w-1/2">
+          <div className="flex text-center ">
             {prevUrl && (
               <button
-                className="text-align-center"
+                className="mx-10 text-2xl bg-blue-200 rounded-md mx-4 w-4/5 px-8"
                 onClick={() => {
                   setPokeData([]);
                   setUrl(prevUrl || "");
@@ -69,6 +69,7 @@ const App = () => {
 
             {nextUrl && (
               <button
+                className="mx-10 text-2xl bg-blue-200 rounded-md mx-4 w-4/5 px-8"
                 onClick={() => {
                   setPokeData([]);
                   setUrl(nextUrl);
