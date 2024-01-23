@@ -5,7 +5,7 @@ interface Pokemon {
   id: number;
   name: string;
   sprites: {
-    front_default: string;
+    other: any;
   };
 }
 
@@ -27,8 +27,12 @@ const Card: FC<CardProps> = ({ pokemon, loading }) => {
               <div className="grid grid-cols-2 text-2xl p-3 font-bold text-stone-800 capitalize bg-blue-200 mx-4 w-full rounded-md shadow-lg">
                 <div>
                   <h2>{item.id}</h2>
-                  <img src={item.sprites.front_default} alt={item.name} />
-                  <h2>{item.name}</h2>
+                  <img
+                    className=""
+                    src={item.sprites.other.showdown.front_default}
+                    alt={item.name}
+                  />
+                  <h2 className="pt-8">{item.name}</h2>
                 </div>
                 <div>
                   <h3>Stat</h3>

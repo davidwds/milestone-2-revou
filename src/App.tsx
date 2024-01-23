@@ -7,36 +7,37 @@ interface Pokemon {
   types: any;
   id: number;
   name: string;
-  url: string;
   sprites: {
-    front_default: string;
+    other: any;
   };
 }
+interface PokemonApiResults {
+  url: string;
+}
 
-const App = () => {
+const App: React.FC = () => {
   const [pokeData, setPokeData] = useState<Pokemon[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [url, setUrl] = useState<string>("https://pokeapi.co/api/v2/pokemon/");
   const [nextUrl, setNextUrl] = useState<string | undefined>();
   const [prevUrl, setPrevUrl] = useState<string | undefined>();
 
-  const getPokemon = async (res: any) => {
-    res.map(async (item: any) => {
-      const result = await axios.get(item.url);
-
-      setPokeData((state) => {
-        state = [...state, result.data];
-        state.sort((a, b) => (a.id > b.id ? 1 : -1));
-        return state;
-      });
-    });
+  const getPokemon = async (res: PokemonApiResults[]): Promise<void> => {
+    const newPokeData: Pokemon[] = [];
+    for (const item of res) {
+      const result = await axios.get<Pokemon>(item.url);
+      newPokeData.push(result.data);
+    }
+    setPokeData([...pokeData, ...newPokeData].sort((a, b) => a.id - b.id));
   };
-
-  console.log(getPokemon);
 
   const pokeFun = async () => {
     setLoading(true);
-    const res = await axios.get(url);
+    const res = await axios.get<{
+      results: PokemonApiResults[];
+      next?: string;
+      previous?: string;
+    }>(url);
     setNextUrl(res.data.next);
     setPrevUrl(res.data.previous);
     getPokemon(res.data.results);
@@ -45,8 +46,8 @@ const App = () => {
 
   useEffect(() => {
     pokeFun();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
-
   return (
     <>
       <div>
