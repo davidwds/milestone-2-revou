@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Navbar from "./Components/Navbar";
-import Pokeinfo from "./Components/Pokeinfo";
+import PokeInfo from "./Components/Pokeinfo";
 import SearchPokemon from "./Components/SearchPokemon";
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
       children: [
         {
           path: "/",
-          element: <Pokeinfo />,
+          element: <PokeInfo />,
         },
         {
           path: "/search",

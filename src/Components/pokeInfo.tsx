@@ -15,7 +15,7 @@ interface PokemonApiResults {
   url: string;
 }
 
-const Pokeinfo: React.FC = () => {
+const PokeInfo: React.FC = () => {
   const [pokeData, setPokeData] = useState<Pokemon[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [url, setUrl] = useState<string>("https://pokeapi.co/api/v2/pokemon/");
@@ -85,4 +85,4 @@ const Pokeinfo: React.FC = () => {
   );
 };
 
-export default Pokeinfo;
+export default PokeInfo;
